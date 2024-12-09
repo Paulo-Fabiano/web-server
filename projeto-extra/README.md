@@ -25,7 +25,7 @@
 #### Faremos a adição da seguinte linha no arquivo.
     <packaging>war</packaging>
 
-## Criaremos uma classe também
+## Criaremos uma classe também chamada ` ServletInitializer ` que serve como um ponto de entrada especifico para o servidor Tomcat. Em outras palavras ela faz a "conexão" para integrar o Spring Boot ao Tomcat.
 
 ### Devemos nos certificar de ter a JDK (Java Development Kit ou Kit de Desenvolvimento Java) e o Maven para gerar o war do projeto.
 
@@ -59,6 +59,8 @@
     EXPOSE 8080
 
     COPY ./loja.war /usr/local/tomcat/webapps
+
+### Observação: 
 
 #### Mudei o nome para `loja.war` para facilitar o acesso pelo navegador.
 

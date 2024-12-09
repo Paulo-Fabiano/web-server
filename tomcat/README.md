@@ -85,6 +85,10 @@
         - "9090:9090"
         volumes:
         - "/home/paulo/Documentos/web-server/tomcat/Docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+
+    networks:
+        bridge:
+            external: true
     
 - Usando as imagens que foram sugeridas.
 - Irei montar um volume do container do Prometheus na pasta `/prometheus/prometheus.yml` para quaisquer atualizações posteriores ficarem mais fáceis. Mais a frente irei explicar melhor o que é esse arquivo.
@@ -94,10 +98,14 @@
 #### Para configurar o Prometheus, podemos escrever um arquivo com a extensão `yml` que conterá as intruções de onde o Prometheus irá coletar as métricas e outras configurações relacionadas a seu funcionamento. Ao montar o arquivo como um volume, qualquer alteração que fizermos no arquivo será automaticamente refletida no container, sem precisar reconstruir ou reiniciar o container, facilitando a atualização da configuração.
 
     scrape_configs:
-    - job_name: 'jenkins'
-        metrics_path: /prometheus
+    - job_name: 'jenkins'  # O nome do job de scrape no Prometheus.
+        metrics_path: /jenkins/prometheus/  # O caminho onde o Prometheus buscará as métricas.
+        scrape_interval: 15s  # O intervalo entre as coletas de métricas. Aqui, está configurado para 10 segundos.
+        scrape_timeout: 5s  # O tempo máximo que o Prometheus aguardará pela resposta do Jenkins. Caso exceda, a coleta falhará.
+        scheme: http  # Define o protocolo usado para acessar o Jenkins. Aqui está configurado para HTTPS.
         static_configs:
-        - targets: ["jenkins:8080"]  # Ajuste a porta, se necessário
+        - targets: ['172.17.0.2:8080']  # O endereço IP do Jenkins.
+
 
 - scrape_configs defie os jobs, ou seja, tarefas, que o Prometheus executa.
 - job_name é o nome da tarefa.
