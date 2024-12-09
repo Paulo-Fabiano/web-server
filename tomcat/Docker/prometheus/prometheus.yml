@@ -1,20 +1,8 @@
-# scrape_configs:
-#   - job_name: 'jenkins'
-#     metrics_path: /prometheus
-#     static_configs:
-#       - targets: ["jenkins:8080"]  # Ajuste a porta, se necessário
-
-
-
-# # Enfrentei um erro ao quando passava a url completa
-
 scrape_configs:
   - job_name: 'jenkins'  # O nome do job de scrape no Prometheus.
-    metrics_path: /jenkins/prometheus/  # O caminho onde o Prometheus buscará as métricas (ex.: http://<jenkins-host>:8080/prometheus/).
-    scrape_interval: 300s  # O intervalo entre as coletas de métricas. Aqui, está configurado para 5 minutos.
-    scrape_timeout: 30s  # O tempo máximo que o Prometheus aguardará pela resposta do Jenkins. Caso exceda, a coleta falhará.
+    metrics_path: /jenkins/prometheus/  # O caminho onde o Prometheus buscará as métricas.
+    scrape_interval: 15s  # O intervalo entre as coletas de métricas. Aqui, está configurado para 10 segundos.
+    scrape_timeout: 5s  # O tempo máximo que o Prometheus aguardará pela resposta do Jenkins. Caso exceda, a coleta falhará.
     scheme: http  # Define o protocolo usado para acessar o Jenkins. Aqui está configurado para HTTPS.
-    tls_config:
-      insecure_skip_verify: true  # Desativa a verificação de certificados SSL/TLS. Isso pode ser útil em ambientes de desenvolvimento ou quando o Jenkins usa um certificado autoassinado.
     static_configs:
-      - targets: ['172.18.0.2:8080']  # O endereço do Jenkins (substitua <jenkins-host> pelo IP ou nome de domínio do seu servidor Jenkins).
+      - targets: ['172.18.0.2:8080']  # O endereço do Jenkins.

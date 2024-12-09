@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Página Inicial - Administração</title>
+    <style>
+        /* Centraliza o conteúdo da div content */
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* ocupa a altura total da janela */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome-message {
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 0px;
+        }
+
+        .date-time {
+            font-size: 28px;
+            color: #555;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .welcome-message {
+                font-size: 28px;
+            }
+            .date-time {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-message {
+                font-size: 22px;
+            }
+            .date-time {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content" class="content">
+    <div class="welcome-message">Bem-vindo ao Painel Administrativo!</div>
+<!--    <div class="date-time" id="date-time">Carregando data e hora...</div>-->
+</div>
+
+</body>
+</html>

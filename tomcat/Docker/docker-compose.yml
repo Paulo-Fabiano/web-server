@@ -1,17 +1,12 @@
 services:
-#   tomcat:
-#     container_name: tomcat
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     ports:
-#       - "8080:8080"
 
   grafana:
     container_name: grafana 
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
+    networks:
+      - bridge
 
   prometheus:
     container_name: prometheus
@@ -20,4 +15,9 @@ services:
       - "9090:9090"
     volumes:
       - "/home/paulo/Documentos/web-server/tomcat/Docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    networks:
+      - bridge
   
+networks:
+  bridge:
+    external: true
