@@ -10,6 +10,8 @@
 
 #### No diretório encontram-se todas as intruções para a execução com Docker do desafio. Optei por configurar o plugin do prometheus na interface web do Jenkis, já que o monitoramento com o Grafana só válida de o Jenkins está UP.
 
+![plugin](/tomcat/imagens/extensao-prometheus.png)
+
 ## Diretório ` projeto-extra `
 
 #### No diretório encontram-se todas as intruções para a execução com Docker e o repositório do sistema que utilizei. 
