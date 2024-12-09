@@ -22,7 +22,7 @@
 
     $ sudo usermod -aG docker paulo
  
-## 2. Após o Docker está configurado e funcionando em nossa máquina, iremos fazer o download do arquivo WAR no site oficial do Jenkins, criar um Dockerfile, buildar a imagem e executar.
+## 2. Após o Docker estar configurado e funcionando em nossa máquina, iremos fazer o download do arquivo WAR no site oficial do Jenkins, criar um Dockerfile, buildar a imagem e executar.
 
 ### 2.1 Fazendo o download no site oficial do Jenkins
 
@@ -68,7 +68,7 @@
 ### 3.4 Após a configuração inicial iremos instalar o plugin do Prometheus para monitorar o Jenkins
 ![extensão-prometheus](/tomcat/imagens/extensao-prometheus.png)
 
-## 4. Agora iremos criar um arquivo `docke-compose.yml` e criar os serviços.
+## 4. Agora iremos criar um arquivo `docker-compose.yml` e criar os serviços.
 
     services:
 
@@ -130,3 +130,7 @@
 - Connection = http://localhost:9090
 
 #### Após isso é só clicar em `Save & test`
+
+## Com tudo configurado, podemos montar nosso primeiro dashboard no Grafana. Iremos montar o dashboard buscando as informações sobre se o Jenkins está UP
+![dashboard](/tomcat/imagens/primeiro-dashboard.png)
+## Agora já podemos monitorar se o nosso Jenkins está UP.
