@@ -3,6 +3,5 @@ scrape_configs:
     metrics_path: /jenkins/prometheus/  # O caminho onde o Prometheus buscará as métricas.
     scrape_interval: 15s  # O intervalo entre as coletas de métricas. Aqui, está configurado para 10 segundos.
     scrape_timeout: 5s  # O tempo máximo que o Prometheus aguardará pela resposta do Jenkins. Caso exceda, a coleta falhará.
-    scheme: http  # Define o protocolo usado para acessar o Jenkins. Aqui está configurado para HTTPS.
     static_configs:
-      - targets: ['172.18.0.2:8080']  # O endereço do Jenkins.
+      - targets: ['172.18.0.4:8080']  # O endereço do Jenkins.

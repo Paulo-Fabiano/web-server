@@ -85,10 +85,6 @@
         - "9090:9090"
         volumes:
         - "/home/paulo/Documentos/web-server/tomcat/Docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
-
-    networks:
-        bridge:
-            external: true
     
 - Usando as imagens que foram sugeridas.
 - Irei montar um volume do container do Prometheus na pasta `/prometheus/prometheus.yml` para quaisquer atualizações posteriores ficarem mais fáceis. Mais a frente irei explicar melhor o que é esse arquivo.
